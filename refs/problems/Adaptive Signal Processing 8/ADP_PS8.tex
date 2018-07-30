@@ -1,0 +1,78 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{gensymb}
+\usepackage{nopageno}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\begin{document}
+\centering \textbf{EE608  Adaptive Signal Processing}\\
+\medskip
+\centering{Problem Set 8}\\
+\medskip
+\begin{enumerate}
+\item Implement Sato’s blind channel equalizer for:
+\medskip
+\begin{enumerate}[(a)]
+\item BPSK data symbols and channel as specified\\
+\bigskip
+$h(n)=\begin{cases}
+\bigskip
+\frac{1}{2}[1+cos(\frac{2\pi}{F}{(n-2)})]& n=1,2,3\\
+0 & otherwise
+\end{cases}$\\
+with $F=4.5$ or greater.
+\item QPSK data, with the channel as above.
+\item BPSK data, but with a narrow band channel
+$h(n)=\begin{cases}
+\bigskip
+{1}&  n=0,1,... 9\\
+0&  otherwise
+\end{cases}$\\
+\medskip
+\item QPSK data with narrow band channel.
+\item A channel of your choice.\\
+In all cases specify the variance of additive noise.
+\medskip
+Compare the results of the Sato’s blind algorithm with the previous simulation where one had used the knowledge
+of the channel.\\
+\end{enumerate}
+\medskip
+\item Implement the \textit{Transform Based} LMS algorithm in the one step predictive mode. Use the data set for the LMS
+algorithm from Home Work No.3, Problem 8. Use any real transform; DCT or DWT. Comment on the convergence
+and MSE performance of the transform based LMS algorithm.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+\end{document}

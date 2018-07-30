@@ -1,0 +1,67 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{gensymb}
+\usepackage{nopageno}
+\usepackage{mathtools}
+\usepackage{siunitx}
+%\usepackage{graphicx}
+\DeclareUnicodeCharacter{2212}{-}
+\newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
+\begin{document}
+\centering \textbf{EE608  Adaptive Signal Processing}\\
+\medskip
+\centering{Problem Set 4}\\
+\bigskip
+\begin{enumerate}
+\item Find an expression for $J_{min}$, the Wiener optimal cost.\\
+\medskip
+\item \textit{Method of Steepest Descent:}\\
+\smallskip
+In class we derived the LMS algorithm using the method of, what was referred to as, \textit{gradient descent}.In literature, the method of steepest descent is talked about very often. Most of the steps in the method of gradient descent and steepest descent are the same, except for the selection of the step size parameter $\mu $. In the method of steepest descent, one solves another minimization problem for selecting $ \mu.$ This is illustrated in the present problem.\\
+\smallskip
+Consider the Problem\\
+$$\quad\min_W{J(n)}=\quad\min_W\{E[(d(n)-W^TX(n))^2]\}$$\\
+\medskip
+with notations and assumptions as defined in class. This problem can be solved non-iteratively, by using the orthogonality principle or simply differentiating the above. On can obtain an iterative algorithm using the method of steepest descent. We define the steepest descent based iterative equation as\\
+$$W(n+1)=W(n)+\mu(n){(-\nabla}_W[J(n)])$$\\
+\medskip
+Now $\mu$ is selected such that $\bar{J}(n)=[J(n)]_{W=W(n+1 )}$ is minimized w.r.t $\mu.$ Show that that the optimal value of Show that that the optimal value of $\mu$ is given by is given by
+$$\mu(n)=\frac{(\nabla_{W_{(n)}}[\bar{J}(n)])^T(\nabla_{W_{(n)}}[\bar{J}(n)])}{(\nabla_{W_{(n)}}[\bar{J}(n)])^TR(\nabla_{W_{(n)}}[\bar{J}{(n)}])} $$\\
+\medskip
+Note that, here $\mu $ is time varying.
+\medskip
+\item In class we showed that the LMS algorithm converges in the mean if $\mu $ is selected such that $0<\mu <2{\lambda}_{max}.$ \\
+Show that this condition is satisfied if $\mu$ is selected such that $0 < \mu < 2/(M$ (signal power)).\\
+\bigskip 	
+\textbf{Simulations}
+\medskip
+\item Using the data given to you in Problem Set 2, implement the LMS algorithm in the predictive mode to whiten the given process. You will need to select an appropriate order for the filter.\\
+What is the eigenvalue spread for this data set?\\
+\textit{Remark:}
+The data given earlier in Problem Set 2 was generated from a four pole – three zero model:\\
+$$H(z)= \frac{1+{0.5z^{-1}}+0.007z^{-2}-0.013z^{-3}}{1-1.2z^{-1}+0.575z^{-2}-0.1375z^{-3}-0.0125z^{-4}}$$
+driven by uniform white noise. This was deliberately done to violate various assumptions that we have been making and still see the validity of different adaptive algorithms.
+\medskip
+\begin{enumerate}[(a)]
+\item Generate the data for LMS algorithm using the model\\
+$$H(z)= \frac{(z-0.8)(z+0.7)}{(z-0.9)(z+0.8)(z+65)}$$\\
+\bigskip
+To generate the data you will drive the above system by a Gaussian white process with zero mean and variance preselected by you. Determine how long you need to run the system, so that it has reached steady state. Once in steady state, start collecting the data. Collect, at least, 512 points (you may need more in case your LMS algorithm is going to take a long time for convergence).
+\smallskip
+\item Get an estimate for the signal energy for the above data, and using this estimate determine the range for $\mu.$ 
+Select two values for $\mu$ in this range.
+\item Run the LMS algorithm in the predictive mode for the data that you have generated and for the two choices of $\mu.$
+\item Do a validation test. You should use the following for the purpose of comparison
+\end{enumerate}
+\begin{enumerate}[i.]
+\item Learning curve (i.e mean square error curve)\\
+\item Convergent values of $W(n)$\\
+\item Whiteness of the error\\
+Comment on which choice of $\mu$ gives better results, and why.
+\end{enumerate}
+\end{enumerate}
+\end{document}

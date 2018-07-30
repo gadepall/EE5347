@@ -1,0 +1,105 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{gensymb}
+\usepackage{nopageno}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+\centering \textbf{EE608  Adaptive Signal Processing}\\
+\centering{Problem Set 2}\\
+\bigskip
+\begin{enumerate}
+\item\textbf{Computing the Sample Covariance Matrix}\\
+\smallskip
+Let $Y(k)$ be a discrete time stochastic process, and $\{y(k)\}_0^{N-1}$ be a realization of this process.\\
+
+A typical problem in practice is to compute the second order statistics of the process.\\
+\smallskip
+The procedure for computing the mean is well known; in fact it is the answer obtained earlier
+using the maximum likelihood estimation procedure under Gaussian assumption, namely
+\bigskip
+\bigskip
+$$\hat{m}_N=\frac{1}{N}\quad\sum_0^{N-1}Y(k)$$\\
+\bigskip
+To avoid a new notation we use the \textit{computer programming definition}\\
+\bigskip
+\bigskip
+$Y(k):=Y(k)-\hat{m}_N\rightarrow y(k):=y(k)-\hat{m}_N$\\
+\bigskip
+Now we look for procedures for computing the covariance of Y(k) using $\{y(k)\}_0^{N-1}.$
+\begin{enumerate}[(a)]
+\item Let\\
+\bigskip
+$$\bar{r}_N{(k)}=\frac{1}{N-k}[{\quad\sum_{j=0}^{N-k-1}}{y(j+k)}y(j)], k=0,1,...N-1 $$\\
+show that\\
+\begin{enumerate}[i.]
+\item $\bar{r}_N{(k)}$ is an unbiased estimate of the true covariance parameter $r(k)=E[(j+k)Y(j)]$
+\item the covariance matrix constructed using $r_N{(k)}$ will not be non-negative definite. Because of this problem one looks for alternative methods for computing the sample
+covariance matrix.
+\end{enumerate}
+\item Alternately let the sample covariance matrix be defined as
+$$r_N{(k)}=\frac{1}{N-k}[{\quad\sum_{j=0}^{N-k-1}}{y(j+k)}y(j)], k=0,1,...N-1 $$\\
+\begin{enumerate}[i.]
+\item Show that $r_N{(k)}$ is not an unbiased estimate of the true covariance parameter; nevertheless it is an asymptotically unbiased estimate.
+\item Show that the covariance matrix constructed using $\bar{r}_N{(k)}$ is non-negative definite.\\
+(Hint: Express the sample covariance matrix as a product of data matrix with its
+transpose).\\
+\end{enumerate}
+\end{enumerate}
+\bigskip
+\item Let $x(\cdot)$ and $y(\cdot)$ be discrete time, jointly stationary zero mean processes with $E[x(n)y(m)]=r_{xy}(n-m),E[y(n)y(m)]=r_{yy}(n−m)$ Show that the parameters involved in computing the following linear least-squares estimates are identical.
+\begin{enumerate}[(a)]
+\item $\hat{E}[x(n)|y(n-1),...y(n-M)]$\\
+\bigskip
+\item $\hat{E}[x(n+N)|y(n+N-1),...y(n+N-M)]$ \\
+\bigskip
+\textit{Note:}This simple result shall be used often.
+\end{enumerate}
+\bigskip
+\bigskip
+\bigskip
+\item \textbf{Determining $\hat{x}(k|n)$ using Levinson’s Algorithm}\\
+\smallskip
+In class we developed the Levinson’s Algorithm for the one step prediction problem and for generating the innovations. In this problem you are required to develop a recursive scheme for
+computing $\hat{x}(k|n)$ in the framework of Levinson’s algorithm.\\
+Show that\\
+\bigskip
+$\hat{x}{(k|n+1)}=\hat{x}(k|n)+\Gamma(k,n)\epsilon(n)$\\
+Determine the expression for the gain $\Gamma(k,n)$ and an expression for recursively computing it.
+The above is referred to as the measurement update equation.\\
+\bigskip
+\item In the Levinson Algorithm derive the expression
+$$p(n)=r(0)+\quad\sum_{i-0}^{n-1}{a_n(n-i)r(i-n)}$$\\
+where $p(n)$ is the innovations (error) variance
+$$p(n)=E[\{y(n)-\hat{y}(n|n-1)\}^2]$$
+\item Let $y{(\cdot)}$ be a zero mean process with
+$$E[y(k+m)y(m)]=(\frac{1}{4})^{\vert{k}\vert}$$\\
+\medskip
+and $x(\cdot)$ be another process with\\
+\bigskip
+$E[y(k+m)y(m)]=\begin{cases}
+\bigskip
+(2/3)^k& k \geq 0\\
+(1/3)^k& k\leq 0\\
+\end{cases}$\\
+\bigskip
+$E[x(k+m)x(m)]=(\frac{1}{2})^{\vert{k}\vert}$\\
+\medskip
+\begin{enumerate}[(a)]
+\item Find the optimal filter for computing the linear least squares estimate of $x(n + N ), N > 0,$
+based on $\{y(k),k\leq n \}.$
+\end{enumerate}
+\item \textbf{Simulation:}Consider the sample values of a stationary process y(·) on the home page for the \textbf{ASP course:}in http$://$sharada.ee.iitb.ac.in$/$ ee608$/,$ file name is levinson.dat
+\begin{enumerate}[(a)]
+\item Determine the first 50 covariance lags $r(n)$   ${0}\leq {n} \leq {50}.$
+\item Using Levinson’s algorithm determine an appropriate AR model. Comment on the goodness
+of this model. If there are any deficiencies or problems give reasons for them.
+\end{enumerate}
+\end{enumerate}
+\end{document}

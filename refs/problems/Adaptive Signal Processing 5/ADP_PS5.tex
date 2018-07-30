@@ -1,0 +1,79 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{gensymb}
+\usepackage{nopageno}
+\usepackage{mathtools}
+\usepackage{siunitx}
+%\usepackage{graphicx}
+%DeclareUnicodeCharacter{2212}{+}
+\begin{document}
+\centering \textbf{EE608  Adaptive Signal Processing}\\
+\medskip
+\centering{Problem Set 5}\\
+\bigskip
+\begin{enumerate}
+\item \textit{Complex LMS Algorithm}\\
+Let all the variables in the algorithm be complex. Now, wherever  you have transpose terms like $A^T$, it will get replaced by $A^H={(A^*)}^T$. Let\\
+\begin{align*}
+&\text{Tap input vector be X(n)}={X_R}(n)+j{X_I}(n)\\
+&\text{Desired Response be d(n)}={d_R}(n)+jd_I(n)\\
+&\text{Tap Weight Vector be W(n)}={W_R}(n)+j{W_I}(n)\\
+&\text{Estimation Error be e(n)}=e_R(n)+j{e_I}(n)\\    
+\end{align*}
+\medskip
+Show that
+\begin{align*}
+W_R(n+1)& ={W_R}(n)+\mu[e_R(n)X_R(n)-e_I(n)X_I(n)]\\
+W_I(n+1)& =W_I(n)+\mu[e_R(n)X_I(n)+e_I(n)X_R(n)]\\
+\end{align*}
+where
+\begin{align*}
+e_R(n)& =d_R(n)-W_{R}^{T}{X_R(n)}+W_{I}^{T}(n)X_I(n)\\
+e_I(n)& =d_I(n)-W_{R}^{T}{X_I(n)}-W_{I}^{T}(n){X_R(n)}\\
+\end{align*}
+\smallskip
+Note: You will need to use derivative of complex quantities w.r.t to real and imaginary parts.\\
+Let $f(W)$ be a scalar complex function of a complex column vector $W=W_R+jW{_I},$and $W_R=[w_{R}^{1}...w_{R}^{M}]^T,W_I=[w_{I}^{1}...w_{I}^{M}]^T.$ Now the derivative of $f(W)$ w.r.t W is defined as:
+\bigskip
+\begin{align*}
+\frac{\partial{f(W)}}{\partial{W}}=\begin{bmatrix}{\frac{\partial{f(W)}}{\partial{w}_R^1}}-{j\frac{\partial{f(W)}}{\partial{w}_I^1}} \\[12pt]
+{\frac{\partial{f(W)}}{\partial{w}_R^2}}-{j\frac{\partial{f(W)}}{\partial{w}_I^2}} \\
+\vdots \\
+{\frac{\partial{f(W)}}{\partial{w}_R^M}}-{j\frac{\partial{f(W)}}{{w}_I^M}}
+\end{bmatrix}
+\end{align*}
+and the conjugate derivative is defined as\\
+\begin{align*}
+\frac{\partial{f(W)}}{\partial{W}^{*}}=\begin{bmatrix}{\frac{\partial{f(W)}}{\partial{w}_R^1}}+{j\frac{\partial{f(W)}}{\partial{w}_I^1}} \\[12pt]
+{\frac{\partial{f(W)}}{\partial{w}_R^2}}+{j\frac{\partial{f(W)}}{\partial{w}_I^2}} \\
+\vdots \\
+{\frac{\partial{f(W)}}{\partial{w}_R^M}}+{j\frac{\partial{f(W)}}{{w}_I^M}}
+\end{bmatrix}
+\end{align*}
+\bigskip
+\item \textbf{Simulation:}This problem deals with \textit{adaptive noise cancellation} using the LMS algorithm. You will need two data streams: one corresponding to signal plus noise and the other corresponding to noise. You could synthesize such
+data but this would be too far from the real situation. Thus
+\medskip
+\begin{enumerate}[(a)]
+\item Use the speech data files provided on the course web page.\\
+\smallskip
+The files are for speech plus noise, and only noise. You will notice that you cannot decipher the speech when you play the speech plus noise file; but upon proper implementation of the noise cancellation algorithm you will be able to decipher the speech.
+\begin{enumerate}[i.]
+\medskip
+\item noise3.wav and signal noise3.wav form one par
+\item snp.wav and n.wav from one pair
+\item look for other such pairs on the web; these can also be included in the noise cancellation simulation data
+set.
+\end{enumerate}
+\bigskip
+\item OR (optional) your group should capture its own data streams.\\
+You need to generate one stream as: speech data plus noise, and the other stream as only noise. You could
+use two microphones to capture the data streams. The main catch is in capturing both the data streams simultaneously.\\
+Have at least two set of data; each with a different SNR (one with low SNR and the other with high SNR).
+\end{enumerate}
+\end{enumerate}
+\end{document}

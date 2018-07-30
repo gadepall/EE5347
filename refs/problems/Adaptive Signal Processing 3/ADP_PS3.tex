@@ -1,0 +1,61 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+%\usepackage{gensymb}
+\usepackage{nopageno}
+\usepackage{mathtools}
+%\usepackage{siunitx}
+%\usepackage{graphicx}
+\DeclareUnicodeCharacter{2212}{-}
+\newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
+\begin{document}
+\centering \textbf{EE608  Adaptive Signal Processing}\\
+\centering{Problem Set 3}\\
+\bigskip
+\begin{enumerate}
+\item Consider the state space model
+$$X(k+1)=F(k)X(k)+G(k)u(k),    x(0)=x_{0}$$\\
+with $E[X_0]=0, E[u(k)]=0, E[x_{0}{x_{0}}^T]=\Pi_{0}, E[u(k)u^T(j)]=Q(k)\delta(k-j),$ and for $j \geq {k},E[x(k)u^T(j)]=0.$ 
+Let $\Pi(k)=E[x(k)x^T(k)].$   
+\bigskip
+\begin{enumerate}[(a)]
+\item Show that\\
+$$\Pi(k+1)=F(k)\Pi(k){F^{T}(k)}+G(k)Q(k)G^T(k)$$\\
+\bigskip
+\item Show that\\
+$$\Pi(k)-P(k\vert{k-1})\geq {0}$$\\
+\bigskip
+Give an interpresentation to this result.
+\end{enumerate}
+\medskip
+\item Verify the matrix inversion identity
+$${(A+BCD)^{-1}}=A^{-1}-A^{-1}B{(C^{-1}+D{A^{-1}}B)}^{-1}DA^{-1}$$
+\medskip
+\item Show that the filtered error covariance matrix is given by\\
+\medskip
+$$P(k \vert k)=P(k \vert {k-1})-P(k \vert {k-1})H^T{R_\epsilon}^{-1}(k)HP(k \vert {k-1})$$\\
+\item \textbf{Measurement Update and Time Update in Kalman Filtering}\\
+Let the filtered estimate be ${\hat{x}(k \vert k)}\myeq {\mathcal{P}}(k) \vert \{y(0),... y(k)\}].$ Using the kalman Filter (one step predictoer) equations developed in class and associated manipulations, show that the filtered and one step predicted estimate can be computed through the following equations.\\
+\smallskip
+\textit{Measurement Update} 
+\bigskip
+\begin{align*}
+\hat{x}(k \vert k )& =\hat{x}(k \vert (k-1)+K_f(k)[y(k)-H\hat{x}(k\vert {k-1})], \hat{x}(0\vert {-1})=0\\
+k_f(k)& =P(k\vert{k-1})H^T{R\epsilon}^{-1}(k)\\
+&=P(k\vert k)H^TR^{-1}\\
+R_\epsilon(k)& =R+HP(k\vert {k-1})H^T\\
+P(k\vert k)& =P(k\vert {k-1})-P(k\vert{k-1})H^T{R_\epsilon}^{-1}HP(k\vert {k-1}), P(0\vert {-1})=0
+\end{align*}
+\textit{Time Update}
+\bigskip
+\begin{align*}
+\hat{x}({k+1}\vert k) &=F{\hat{x}}(k \vert k)\\
+P({k+1}\vert k) &=FP(k \vert k)F^T+GQG^T\\
+\end{align*}
+\medskip
+Note, form the above equation it should be obvious as to why the computation of the filtered estimate from the one step predicted estimate is referred to as the Measurement Update, while the computation of the one step predicted estimate from the filtered estimate is referred to as the Time Update. 
+\end{enumerate}
+\end{document}
