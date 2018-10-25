@@ -111,9 +111,10 @@
 %\surroundwithmdframed[width=\columnwidth]{lstlisting}
 \def\inputGnumericTable{}                                 %%
 \lstset{
-language=C,
+%language=C,
 frame=single, 
-breaklines=true
+breaklines=true,
+columns=fullflexible
 }
  
 
@@ -280,7 +281,14 @@ $x(n)$. The problem can then be expressed as
 \end{equation}
 \section{Adaptive Equalization}
 \begin{problem}
-Execute the \textbf{LMS\_BER.py} code in the \textbf{equalization} directory. 
+Download
+\begin{lstlisting}
+svn checkout https://github.com/gadepall/EE5347/trunk/equalization/codes
+\end{lstlisting}
+\end{problem}
+%
+\begin{problem}
+Execute \textbf{LMS\_BER.py}.
 \end{problem}
 %
 \begin{problem}
