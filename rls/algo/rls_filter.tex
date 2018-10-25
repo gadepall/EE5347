@@ -111,9 +111,10 @@
 %\surroundwithmdframed[width=\columnwidth]{lstlisting}
 \def\inputGnumericTable{}                                 %%
 \lstset{
-language=C,
+%language=C,
 frame=single, 
-breaklines=true
+breaklines=true,
+columns=fullflexible
 }
  
 
@@ -374,8 +375,11 @@ P(n)&=\lambda ^{-1}\sbrak{I -\frac{\lambda ^{-1}P(n-1)X(n)X^{T}(n)}{1+ \lambda ^
 }
 \end{enumerate}
 \begin{problem}
-Download the \textbf{RLS\_NC\_SPEECH.py} file from this \href{{https://github.com/gadepall/adsp.git}}{\url{link}} 
-and execute it. Comapre the output with the LMS output.
+Download the following script
+\begin{lstlisting}
+wget https://raw.githubusercontent.com/gadepall/EE5347/master/rls/codes/RLS_NC_SPEECH.py
+\end{lstlisting}
+and execute it. Compare the output with the LMS output.
 \end{problem}
 %
 \section{Convergence of the RLS Algorithm}
