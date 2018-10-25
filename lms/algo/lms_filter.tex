@@ -111,9 +111,10 @@
 %\surroundwithmdframed[width=\columnwidth]{lstlisting}
 \def\inputGnumericTable{}                                 %%
 \lstset{
-language=C,
+%language=C,
 frame=single, 
-breaklines=true
+breaklines=true,
+columns=fullflexible
 }
  
 
@@ -244,10 +245,15 @@ This manual provides an introduction to the LMS algorithm.
 \end{abstract}
 \section{Source Files}
 \begin{enumerate}
-\item Get the \href{{https://github.com/gadepall/adsp.git}}{\url{git}} source and enter the local directory
+\item Install \textbf{svn}
 \begin{lstlisting}
-git clone https://github.com/gadepall/adsp.git
-cd adsp/audio_source
+sudo apt install subversion
+\end{lstlisting}
+%
+\item Get the \textbf{audio\_source}
+\begin{lstlisting}
+svn checkout https://github.com/gadepall/EE5347/trunk/audio_source
+cd audio_source
 \end{lstlisting}
 \item Play the \textbf{signal\_noise.wav} and \textbf{noise.wav} file.
 \end{enumerate}
@@ -352,10 +358,12 @@ where $x_0$ is an inital guess.
 Write a program to implement \eqref{eq:gradient}.
 \end{problem}
 %
-\solution 
-Execute \textbf{square\_root.py} in the \textbf{lms} directory.
-%\lstinputlisting{../adsp/lms/}
-%Then 
+\solution Download
+\begin{lstlisting}
+svn checkout https://github.com/gadepall/EE5347/trunk/lms/codes
+cd codes
+\end{lstlisting}
+Execute \textbf{square\_root.py}.
 \section{LMS Algorithm}
 %
 %\begin{problem}
@@ -390,7 +398,7 @@ where $\mu = \bar{\mu}$.
 \begin{problem}
 Write a program to suppress $X(n)$ in $d(n)$.
 \end{problem}
-\solution Execute \textbf{LMS\_NC\_SPEECH.py} in the \textbf{lms} directory.
+\solution Execute \textbf{LMS\_NC\_SPEECH.py}.
 
 \section{Wiener-Hopf Equation}
 \begin{problem}

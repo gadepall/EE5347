@@ -1,3 +1,6 @@
+#Gradient Descent
+#By GVV Sharma, October 25, 2018
+#Algo from Wikipedia
 c = 2
 cur_x = 1 # The algorithm starts at x=1
 gamma = 0.01 # step size multiplier
