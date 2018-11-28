@@ -1,8 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Source Files}{}% 1
 \BOOKMARK [1][-]{section.2}{Problem Formulation}{}% 2
-\BOOKMARK [1][-]{section.3}{Gradient Descent Method}{}% 3
-\BOOKMARK [1][-]{section.4}{LMS Algorithm}{}% 4
-\BOOKMARK [1][-]{section.5}{Wiener-Hopf Equation}{}% 5
-\BOOKMARK [1][-]{section.6}{Convergence of the LMS Algorithm}{}% 6
-\BOOKMARK [2][-]{subsection.6.1}{Convergence in the Mean}{section.6}% 7
-\BOOKMARK [2][-]{subsection.6.2}{Convergence in Mean-square sense}{section.6}% 8
+\BOOKMARK [1][-]{section.3}{LMS Algorithm}{}% 3
+\BOOKMARK [1][-]{section.4}{Wiener-Hopf Equation}{}% 4
+\BOOKMARK [1][-]{section.5}{Convergence of the LMS Algorithm}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Convergence in the Mean}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Convergence in Mean-square sense}{section.5}% 7
