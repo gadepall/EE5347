@@ -9,7 +9,7 @@
 \singlespacing
 \usepackage{amsmath}
 \usepackage{multicol}
-\usepackage{enumerate}
+%\usepackage{enumerate}
 \usepackage{amssymb}
 %\usepackage{graphicx}
 \usepackage{newfloat}
@@ -236,20 +236,22 @@ Least Mean Square Algorithm
 \maketitle
 
 \tableofcontents
+
 \bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+
 
 \begin{abstract}
 	
 This manual provides an introduction to the LMS algorithm.
 		
 \end{abstract}
-\section{Source Files}
-\begin{enumerate}
-\item Install \textbf{svn}
-\begin{lstlisting}
-sudo apt install subversion
-\end{lstlisting}
-%
+\section{Audio Source Files}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+%%
 \item Get the \textbf{audio\_source}
 \begin{lstlisting}
 svn checkout https://github.com/gadepall/EE5347/trunk/audio_source
@@ -270,6 +272,7 @@ is captured in \textbf{noise.wav} and denoted as $X(n)$. The goal is to
 extract the human voice by suppressing $X(n)$. 
 %\section{Solution Strategy}
 %
+\input{./figs/hc05.tex}
 Let
 \begin{equation}
 d(n) = e(n) + y(n)
@@ -287,8 +290,8 @@ where
  =
  %\frac{1}{\det(X)}
   \begin{bmatrix}
-   X(n) \\ X(n-1)\\
-   X(n-2) \\ $..$ \\ $..$ \\ X(n-M+1)  \end{bmatrix}_{M X 1}
+   x(n) \\ x(n-1)\\
+   x(n-2) \\ $..$ \\ $..$ \\ x(n-M+1)  \end{bmatrix}_{M X 1}
 \end{align}
 %\item
 \begin{align}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Termux) (preloaded format=latex 2018.11.6)  28 NOV 2018 14:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Termux) (preloaded format=latex 2018.11.1)  28 NOV 2018 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -283,11 +283,6 @@ Package multicol Warning: May not work with the twocolumn option on input line
 \colbreak@box=\box55
 \mc@col@check@num=\count117
 )
-(/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/tools/enume
-rate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks21
-)
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/amsfonts/am
 ssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -308,7 +303,7 @@ Package: newfloat 2018/03/04 v1.1a Defining new floating environments (AR)
 stings.sty
 \lst@mode=\count118
 \lst@gtempboxa=\box56
-\lst@token=\toks22
+\lst@token=\toks21
 \lst@length=\count119
 \lst@currlwidth=\dimen151
 \lst@column=\count120
@@ -382,7 +377,7 @@ yer/pgf.sty
 es/pgfrcs.sty
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/generic/pgf/utili
 ties/pgfutil-common.tex
-\pgfutil@everybye=\toks23
+\pgfutil@everybye=\toks22
 \pgfutil@tempdima=\dimen157
 \pgfutil@tempdimb=\dimen158
 
@@ -412,12 +407,12 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/generic/pgf/utili
 ties/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks24
-\pgfkeys@temptoks=\toks25
+\pgfkeys@pathtoks=\toks23
+\pgfkeys@temptoks=\toks24
 
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/generic/pgf/utili
 ties/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks26
+\pgfkeys@tmptoks=\toks25
 ))
 \pgf@x=\dimen159
 \pgf@y=\dimen160
@@ -433,9 +428,9 @@ ties/pgfkeysfiltered.code.tex
 \c@pgf@countb=\count127
 \c@pgf@countc=\count128
 \c@pgf@countd=\count129
-\t@pgf@toka=\toks27
-\t@pgf@tokb=\toks28
-\t@pgf@tokc=\toks29
+\t@pgf@toka=\toks26
+\t@pgf@tokb=\toks27
+\t@pgf@tokc=\toks28
 
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/generic/pgf/syste
 mlayer/pgf.cfg
@@ -496,9 +491,9 @@ pgfmathparser.code.tex
 \pgfmath@dimen=\dimen167
 \pgfmath@count=\count133
 \pgfmath@box=\box59
-\pgfmath@toks=\toks30
-\pgfmath@stack@operand=\toks31
-\pgfmath@stack@operation=\toks32
+\pgfmath@toks=\toks29
+\pgfmath@stack@operand=\toks30
+\pgfmath@stack@operation=\toks31
 )
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/generic/pgf/math/
 pgfmathfunctions.code.tex
@@ -653,8 +648,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 pgfmath.code.tex)
 \pgffor@iter=\dimen194
 \pgffor@skip=\dimen195
-\pgffor@stack=\toks33
-\pgffor@toks=\toks34
+\pgffor@stack=\toks32
+\pgffor@toks=\toks33
 ))
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/tikz.code.tex
@@ -778,15 +773,15 @@ File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/amscls/amst
 hm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks35
-\thm@bodyfont=\toks36
-\thm@headfont=\toks37
-\thm@notefont=\toks38
-\thm@headpunct=\toks39
+\thm@style=\toks34
+\thm@bodyfont=\toks35
+\thm@headfont=\toks36
+\thm@notefont=\toks37
+\thm@headpunct=\toks38
 \thm@preskip=\skip49
 \thm@postskip=\skip50
 \thm@headsep=\skip51
-\dth@everypar=\toks40
+\dth@everypar=\toks39
 )
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ma
 thrsfs.sty
@@ -933,6 +928,11 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen266
 \l_MT_above_shortintertext_sep=\dimen267
 \l_MT_below_shortintertext_sep=\dimen268
+)
+(/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/tools/enume
+rate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks40
 )
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/enumitem/en
 umitem.sty
@@ -1286,7 +1286,16 @@ Overfull \hbox (17.60426pt too wide) in paragraph at lines 7--7
 \tf@toc=\write5
 \openout5 = `lms_filter.toc'.
 
-
+ (./figs/hc05.tex
+\gnumericTableWidth=\skip66
+\gnumericTableWidthComplete=\skip67
+\gnumericMultiRowLength=\skip68
+\gnumericColA=\skip69
+\gnumericColB=\skip70
+\gnumericColC=\skip71
+\gnumericColD=\skip72
+\gnumericColE=\skip73
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
@@ -1294,25 +1303,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 678.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 681.
  [3
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 678.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 681.
  (./lms_filter.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 678.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 678.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 681.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 681.
 Package rerunfilecheck Info: File `lms_filter.out' has not changed.
-(rerunfilecheck)             Checksum: B8E9A16C0F95EE903CD967D837B7A1B1;424.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 678.
+(rerunfilecheck)             Checksum: 8DCAAD2D4ED0E87C5C8D0C554E243CB3;430.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 681.
  ) 
 Here is how much of TeX's memory you used:
- 23431 strings out of 492645
- 458075 string characters out of 6118921
- 568789 words of memory out of 5000000
- 26891 multiletter control sequences out of 15000+600000
+ 23458 strings out of 492645
+ 458485 string characters out of 6118921
+ 565789 words of memory out of 5000000
+ 26914 multiletter control sequences out of 15000+600000
  67844 words of font info for 167 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 55i,14n,67p,430b,1135s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,67p,430b,1144s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on lms_filter.dvi (3 pages, 35796 bytes).
+Output written on lms_filter.dvi (3 pages, 36228 bytes).
