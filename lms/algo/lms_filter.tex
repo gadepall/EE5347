@@ -267,14 +267,23 @@ is captured in \textbf{noise.wav}.
 \end{enumerate}
 %
 \section{Problem Formulation}
-Let the \textbf{signal\_noise.wav} be $d(n)$, which contains a human voice along 
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+
+\item Let the \textbf{signal\_noise.wav} be $d(n)$, which contains a human voice along 
 with an instrument sound in the background.  This instrument sound
 is captured in \textbf{noise.wav} and denoted as $X(n)$. The goal is to 
 extract the human voice by suppressing $X(n)$. 
 %\section{Solution Strategy}
 %
-\csvautotabular{./figs/sigs.csv}
-%\input{./figs/hc05.tex}
+%\csvautotabular{./figs/sigs.csv}
+\begin{table}[!ht]
+\centering
+\small
+\input{./figs/sigs.tex}
+\caption{}
+\label{table:known}
+\end{table}
 Let
 \begin{equation}
 d(n) = e(n) + W^{T}(n)X(n)
@@ -315,6 +324,7 @@ This is possible if $e(n)$ is minimum. This problem can be expressed as
 \min_{W(n)}e^{2}(n)
 \end{equation}
 %
+\end{enumerate}
 \section{LMS Algorithm}
 %
 %\begin{problem}

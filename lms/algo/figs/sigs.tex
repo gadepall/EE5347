@@ -18,7 +18,7 @@
 %%    \usepackage[latin1]{inputenc}                                 %%
 %%    \usepackage{color}                                            %%
 %%    \usepackage{array}                                            %%
-%%    \usepackage{longtable}                                        %%
+%%    \usepackage{tabular}                                        %%
 %%    \usepackage{calc}                                             %%
 %%    \usepackage{multirow}                                         %%
 %%    \usepackage{hhline}                                           %%
@@ -123,12 +123,13 @@
 \setlongtables
 
 \setlength\gnumericTableWidth{%
-	53pt+%
+	84pt+%
 	42pt+%
-	53pt+%
-	53pt+%
+	95pt+%
+	84pt+%
+	84pt+%
 0pt}
-\def\gumericNumCols{4}
+\def\gumericNumCols{5}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
          \tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
 \ifthenelse{\lengthtest{\gnumericTableWidthComplete > \linewidth}}%
@@ -146,16 +147,18 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{84pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{42pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{150pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{150pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColE}}{\newlength{\gnumericColE}}{}\settowidth{\gnumericColE}{\begin{tabular}{@{}p{84pt*\gnumericScale}@{}}x\end{tabular}}
 
-\begin{longtable}[c]{%
+\begin{tabular}[c]{%
 	b{\gnumericColA}%
 	b{\gnumericColB}%
 	b{\gnumericColC}%
 	b{\gnumericColD}%
+	b{\gnumericColE}%
 	}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -166,33 +169,46 @@
 %%  the first, last or every page. Use \multicolumn if you want.    %%
 
 %%  Header for the first page.                                      %%
-%	\multicolumn{4}{c}{The First Header} \\ \hline 
+%	\multicolumn{5}{c}{The First Header} \\ \hline 
 %	\multicolumn{1}{c}{colTag}	%Column 1
 %	&\multicolumn{1}{c}{colTag}	%Column 2
 %	&\multicolumn{1}{c}{colTag}	%Column 3
+%	&\multicolumn{1}{c}{colTag}	%Column 4
 %	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
 %	\endfirsthead
 
 %%  The running header definition.                                  %%
 %	\hline
-%	\multicolumn{4}{l}{\ldots\small\slshape continued} \\ \hline
+%	\multicolumn{5}{l}{\ldots\small\slshape continued} \\ \hline
 %	\multicolumn{1}{c}{colTag}	%Column 1
 %	&\multicolumn{1}{c}{colTag}	%Column 2
 %	&\multicolumn{1}{c}{colTag}	%Column 3
+%	&\multicolumn{1}{c}{colTag}	%Column 4
 %	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
 %	\endhead
 
 %%  The running footer definition.                                  %%
 %	\hline
-%	\multicolumn{4}{r}{\small\slshape continued\ldots} \\
+%	\multicolumn{5}{r}{\small\slshape continued\ldots} \\
 %	\endfoot
 
 %%  The ending footer definition.                                   %%
-%	\multicolumn{4}{c}{That's all folks} \\ \hline 
+%	\multicolumn{5}{c}{That's all folks} \\ \hline 
 %	\endlastfoot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\hhline{|-|-|-~}
+\hhline{|-|-|-|-~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Signal}}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Label}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Type}}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{\textbf{Filename}}}
+	&
+\\
+\hhline{|----|~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{\setlength{\gnumericMultiRowLength}{0pt}%
 	 \addtolength{\gnumericMultiRowLength}{\gnumericColA}%
@@ -201,19 +217,23 @@
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{d(n)}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Human+Instrument}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
 	{\gnumericPB{\centering}\gnumbox{signal noise.wav}}
 	&
 \\
-\hhline{~|--|~}
+\hhline{~|---|~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{X(n)}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Instrument}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
 	{\gnumericPB{\centering}\gnumbox{noise.wav}}
 	&
 \\
-\hhline{|---|~}
+\hhline{|----|~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{\setlength{\gnumericMultiRowLength}{0pt}%
 	 \addtolength{\gnumericMultiRowLength}{\gnumericColA}%
@@ -222,23 +242,27 @@
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{e(n)}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Human estimate}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
 	{\setlength{\gnumericMultiRowLength}{0pt}%
-	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColD}%
 	 \multirow{2}[1]{\gnumericMultiRowLength}{%
 	 }}
 	&
 \\
-\hhline{~|-|~~}
+\hhline{~|--|~~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{W(n)}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Weight Vector}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
 	{}
 	&
 \\
-\hhline{|-|-|-|~}
-\end{longtable}
+\hhline{|-|-|-|-|~}
+\end{tabular}
 
 \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
 \gnumericTableEnd
