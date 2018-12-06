@@ -360,15 +360,15 @@ wget https://raw.githubusercontent.com/gadepall/EE5347/master/lms/codes/LMS_NC_S
 %
 show that
 \begin{multline}
-E[e^{2}(n)] = r_{dd} - \mbf{W}^{T}(n)\mbf{r}_{xd}  
+E[e^{2}(n)] = r_{dd} - W^{T}(n)r_{xd} - 
 \\
-- \mbf{r}^{T}_{xd}\mbf{W}(n) + \mbf{W}^{T}(n) R \mbf{W}(n)
+r^{T}_{xd}\mbf{W}(n) + W^{T}(n) R \mbf{W}(n)
 \end{multline}
 where
 \begin{align}
 r_{dd} &= E[d^2(n)]
 \\
-\mbf{r}_{xd} &= E[\mbf{X}(n)d(n)]
+r_{xd} &= E[\mbf{X}(n)d(n)]
 \\
 R &= E[\mbf{X}(n)\mbf{X}^{T}(n)]
 \label{eq:matrix_R}
@@ -378,13 +378,13 @@ R &= E[\mbf{X}(n)\mbf{X}^{T}(n)]
 \item
 By computing 
 \begin{equation}
-\frac{\partial E[e^{2}(n)]}{\partial \mbf{W}(n)}=0,
+\frac{\partial J(n)}{\partial \mbf{W}(n)}=0,
 \end{equation}
 show that the optimal solution for
 %
 \begin{equation}
 \label{eq:wiener_opt}
-\mbf{W}^*(n) = \min_{\mbf{W}(n)}E\sbrak{e^2(n)} = R^{-1} \mbf{r}_{xd}
+W^*(n) = \min_{\mbf{W}(n)}E\sbrak{e^2(n)} = R^{-1} r_{xd}
 \end{equation}
 %
 
@@ -402,22 +402,22 @@ Show that $R$ in \eqref{eq:matrix_R} is symmetric as well as positive definite.
 %
 Let
 \begin{equation}
-\tilde {\mbf{W}}(n)= \mbf{W}(n) - \mbf{W}_{*}
+\tilde W(n)= \mbf{W}(n) - W_{*}
 \end{equation}
 %
-where $\mbf{W}_{*}$ is obtained in \eqref{eq:wiener_opt}. Also, according to the LMS algorithm,
+where $W_{*}$ is obtained in \eqref{eq:wiener_opt}. Also, according to the LMS algorithm,
 \begin{align}
 \label{eq:wn_update}
-\mbf{W}(n+1)&=\mbf{W}(n)+ \mu \mbf{X}(n) e(n)
+W(n+1)&=\mbf{W}(n)+ \mu \mbf{X}(n) e(n)
 \\
-e(n) &= d(n) - \mbf{X}^{T}(n)\mbf{W}(n)
+e(n) &= d(n) - X^{T}(n)\mbf{W}(n)
 \end{align}
 %
 \item
 %
 Show that
 \begin{equation}
- E\sbrak{\tilde {\mbf{W}}(n+1)}=[I - \mu R]E\sbrak{\tilde {\mbf{W}}(n)}
+ E\sbrak{\tilde W(n+1)}=[I - \mu R]E\sbrak{\tilde W(n)}
 \end{equation}
 
 \item
@@ -434,7 +434,7 @@ for some $U, \Lambda$, such that $\Lambda$ is a diagonal matrix and $U^TU = I$.
 Show that
 \begin{equation}
 \label{eq:converge_lambda}
-\lim_{n \to \infty}E\sbrak{\tilde {\mbf{W}}(n+1)} = 0 \iff \lim_{n\to \infty}[I - \mu \Lambda]^n = 0
+\lim_{n \to \infty}E\sbrak{\tilde W(n+1)} = 0 \iff \lim_{n\to \infty}[I - \mu \Lambda]^n = 0
 \end{equation}
 
 %
@@ -454,10 +454,10 @@ Let
  =
   \begin{bmatrix}
    X_1(n) \\ X_2(n)  \end{bmatrix}\\
-\tilde {\mbf{W}}(n)
+\tilde W(n)
  =
   \begin{bmatrix}
-   \tilde{ \mbf{W}}_1(n) \\ \tilde {\mbf{W}}_2(n) \end{bmatrix}
+   \tilde W_1(n) \\ \tilde W_2(n) \end{bmatrix}
 \end{equation}
 
 \begin{enumerate}[label=\thesubsection.\arabic*
@@ -467,7 +467,7 @@ Let
 \item
 Show that 
 \begin{equation}
-E[\tilde {\mbf{W}}^{T}(n)\mbf{X}(n) \mbf{X}^{T}(n) \tilde {\mbf{W}}(n)] = E[\tilde {\mbf{W}}^{T}(n) R \tilde {\mbf{W}}(n)]
+E[\tilde W^{T}(n)\mbf{X}(n) X^{T}(n) \tilde W(n)] = E[\tilde W^{T}(n) R \tilde W(n)]
 \end{equation}
 %
 for $R$ defined in \eqref{eq:matrix_R}.
@@ -505,18 +505,17 @@ Show that
 J(n)=E[e^{2}(n)]
 =E[e_{*}^{2}(n)]
 \\
- + E[\tilde {\mbf{W}}(n)\mbf{X}(n) \mbf{X}(n)^{T} \tilde {\mbf{W}}(n)^T] 
-\\
-- E[ \tilde {\mbf{W}}(n)\mbf{X}(n)e_{*}(n)] 
+ + E[\tilde W(n)\mbf{X}(n) \mbf{X}(n)^{T} \tilde W(n)^T] 
+- E[ \tilde W(n)\mbf{X}(n)e_{*}(n)] 
 \\ 
-- E[ e_{*}(n)\mbf{X}^{T}(n)\tilde {\mbf{W}}^T(n)]
+- E[ e_{*}(n)X^{T}(n)\tilde W^T(n)]
 \end{multline}
 %
  where  
  \begin{align}
  \label{eq:w_tilde}
- \tilde {\mbf{W}}(n)&= \mbf{W}(n) - \mbf{W}_{*}\\
- e_{*}(n)&= d(n) - \mbf{W}_{*}\mbf{X}(n)
+ \tilde W(n)&= W(n) - W_{*}\\
+ e_{*}(n)&= d(n) - W_{*}\mbf{X}(n)
  \label{eq:e_star}
  \end{align}
 
@@ -530,31 +529,33 @@ J(n)=E[e^{2}(n)]
 %\end{align*}
 \item
 Show that
-\begin{equation}
-E\sbrak{ \tilde {\mbf{W}}(n)\mbf{X}(n)e_{*}(n)} = E\sbrak{ e_{*}(n)X^{T}(n)\tilde {\mbf{W}}^T(n)} = 0
-\end{equation}
+\begin{align}
+E\sbrak{ \tilde W(n)\mbf{X}(n)e_{*}(n)} &= E\sbrak{ e_{*}(n)X^{T}(n)\tilde W^T(n)} 
+\nonumber \\
+&= 0
+\end{align}
 
 %
 \item
 Show that
 \begin{align}
-E\sbrak{\tilde {\mbf{W}}^{T}(n) R \tilde {\mbf{W}}(n)} &= \text{trace}\brak{E\sbrak{\tilde {\mbf{W}}^{T}(n) R \tilde {\mbf{W}}(n)}}
+E\sbrak{\tilde W^{T}(n) R \tilde W(n)} &= \text{trace}\brak{E\sbrak{\tilde W^{T}(n) R \tilde W(n)}}
 \\
-&= \text{trace}\brak{E\sbrak{\tilde {\mbf{W}}(n)\tilde {\mbf{W}}^{T}(n) }R}
+&= \text{trace}\brak{E\sbrak{\tilde W(n)\tilde W^{T}(n) }R}
 \end{align}
 
 
 \item
 Using \eqref{eq:w_tilde}, \eqref{eq:wn_update} and \eqref{eq:e_star},  show that 
 \begin{equation}
-\tilde {\mbf{W}}(n+1) = \sbrak{I - \mu \mbf{X}(n) X^{T}(n) }\tilde {\mbf{W}}(n) + \mu \mbf{X}(n)e_{*}(n)
+\tilde W(n+1) = \sbrak{I - \mu \mbf{X}(n) X^{T}(n) }\tilde W(n) + \mu \mbf{X}(n)e_{*}(n)
 \end{equation}
 \item
 Let $\mu^2 \to 0$.  Using \eqref{eq:eigen_decompose} and \eqref{eq:wiener_opt}, show that
 \begin{multline}
-E\sbrak{\tilde {\mbf{W}}(n+1)\tilde {\mbf{W}}^{T}(n+1)} 
+E\sbrak{\tilde W(n+1)\tilde W^{T}(n+1)} 
 \\
-= \brak{I - 2\mu R}E\sbrak{\tilde {\mbf{W}}(n)\tilde {\mbf{W}}^{n}(n)}
+= \brak{I - 2\mu R}E\sbrak{\tilde W(n)\tilde W^{n}(n)}
 \end{multline}
 
 %&=\big [I - \mu X(n) X^{T}(n) \big ]\tilde W(n) \\ & \hspace{0.75cm} + \mu X(n)\big [d(n)-X^{T}(n) W_{*}\big ]\\
@@ -565,7 +566,7 @@ E\sbrak{\tilde {\mbf{W}}(n+1)\tilde {\mbf{W}}^{T}(n+1)}
 \item
 Show that 
 \begin{equation}
-\lim_{n\to\infty}E\sbrak{\tilde {\mbf{W}}(n)\tilde {\mbf{W}}^{T}(n)} = 0 \iff 0 < \mu < \dfrac{1}{\lambda_{max}}
+\lim_{n\to\infty}E\sbrak{\tilde W(n)\tilde W^{T}(n)} = 0 \iff 0 < \mu < \dfrac{1}{\lambda_{max}}
 \end{equation}
 
 %\item
